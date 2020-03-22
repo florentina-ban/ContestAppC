@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestTest\\ContestTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestAppC\\ContestAppC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestAppC\\ContestAppC.csproj",
+        "projectName": "ContestAppC",
+        "projectPath": "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestAppC\\ContestAppC.csproj",
+        "packagesPath": "C:\\Users\\Flore\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestAppC\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Flore\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.19, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestTest\\ContestTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestTest\\ContestTest.csproj",
+        "projectName": "ContestTest",
+        "projectPath": "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestTest\\ContestTest.csproj",
+        "packagesPath": "C:\\Users\\Flore\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Flore\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestAppC\\ContestAppC.csproj": {
+                "projectPath": "C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestAppC\\ContestAppC\\ContestAppC.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.2.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.15.1, )"
+            },
+            "nunit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
