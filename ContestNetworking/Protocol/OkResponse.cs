@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ContestNetworking.Protocol
 {
-    [Serializable] public class OkResponse : IResponse
+    [Serializable] 
+    public class OkResponse : IResponse
     {
     }
 }

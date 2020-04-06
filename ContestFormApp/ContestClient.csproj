@@ -81,6 +81,7 @@
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\ContestController.cs" />
+    <Compile Include="Services\ContestEventArgs.cs" />
     <Compile Include="StartClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MainService.cs" />
@@ -126,6 +127,9 @@
       <Project>{ca6774be-98fe-4bc0-be16-b12011f9d02f}</Project>
       <Name>ContestServices</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

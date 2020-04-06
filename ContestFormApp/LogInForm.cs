@@ -20,6 +20,7 @@ namespace ContestFormApp
         {
             this.controller = ser;
             InitializeComponent();
+            passText.PasswordChar = '-';
         }
 
         private void logInBtn_Click(object sender, EventArgs e)

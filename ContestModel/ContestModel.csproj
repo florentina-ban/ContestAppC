@@ -50,6 +50,7 @@
     <Compile Include="Domain\Competition.cs" />
     <Compile Include="Domain\Entity.cs" />
     <Compile Include="Domain\Participant.cs" />
+    <Compile Include="Domain\ParticipantDTO.cs" />
     <Compile Include="Domain\SignUp.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

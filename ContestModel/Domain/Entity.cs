@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ContestModel.Domain
 {
+    [Serializable]
     public abstract class Entity <ID>
     {
         public ID Id { get; set; }

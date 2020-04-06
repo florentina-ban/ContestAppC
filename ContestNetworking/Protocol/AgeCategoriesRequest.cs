@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace ContestNetworking.Protocol
 {
-    [Serializable] public class AgeCategoriesRequest
+    [Serializable] public class AgeCategoriesRequest : IRequest
     {
-        public int Age { get; set; }
-
-        public AgeCategoriesRequest(int age)
-        {
-            Age = age;
-        }
+        
     }
 }

@@ -44,14 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Protocol\AddRequest.cs" />
+    <Compile Include="Protocol\AgeCategoriesRequest.cs" />
+    <Compile Include="Protocol\AgeCategoriesResponse.cs" />
     <Compile Include="Protocol\ClientWorker.cs" />
+    <Compile Include="Protocol\CompetitionsRequest.cs" />
+    <Compile Include="Protocol\CompetitionsResponse.cs" />
+    <Compile Include="Protocol\DeleteRequest.cs" />
     <Compile Include="Protocol\ErrorResponse.cs" />
     <Compile Include="Protocol\IRequest.cs" />
     <Compile Include="Protocol\IResponse.cs" />
     <Compile Include="Protocol\IUpdateResponse.cs" />
     <Compile Include="Protocol\LogInRequest.cs" />
     <Compile Include="Protocol\OkResponse.cs" />
+    <Compile Include="Protocol\ParticipantsRequest.cs" />
+    <Compile Include="Protocol\ParticipantsResponse.cs" />
     <Compile Include="Protocol\ServerProxy.cs" />
+    <Compile Include="Protocol\UpdateAddParticipatResponse.cs" />
+    <Compile Include="Protocol\UpdateRemovedParticipantResponse.cs" />
     <Compile Include="ServerTypes\AbstractConcurentServer.cs" />
     <Compile Include="ServerTypes\AbstractServer.cs" />
     <Compile Include="ServerTypes\MyConcurentServer.cs" />
