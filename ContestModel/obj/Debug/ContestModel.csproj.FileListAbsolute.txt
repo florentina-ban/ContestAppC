@@ -1,0 +1,6 @@
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestModel\obj\Debug\ContestModel.csprojAssemblyReference.cache
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestModel\bin\Debug\ContestModel.dll.config
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestModel\bin\Debug\ContestModel.dll
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestModel\bin\Debug\ContestModel.pdb
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestModel\obj\Debug\ContestModel.dll
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestModel\obj\Debug\ContestModel.pdb

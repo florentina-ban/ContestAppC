@@ -1,0 +1,10 @@
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\obj\Debug\ContestServices.csprojAssemblyReference.cache
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\bin\Debug\ContestServices.exe.config
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\bin\Debug\ContestServices.exe
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\bin\Debug\ContestServices.pdb
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\bin\Debug\ContestModel.dll
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\bin\Debug\ContestModel.pdb
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\bin\Debug\ContestModel.dll.config
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\obj\Debug\ContestServices.csproj.CopyComplete
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\obj\Debug\ContestServices.exe
+C:\Users\Flore\Desktop\info18\MPP\gitApps\ContestAppC\ContestServices\obj\Debug\ContestServices.pdb

@@ -1,5 +1,4 @@
-﻿using ContestAppC.Domain;
-using ContestAppC.Repository;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +9,7 @@ namespace ContestFormApp.Services
 {
     public class MainService
     {
+        /*
         public RepoAgeCategory MyRepoAgeCategory { set; get; }
         public RepoCompetitions MyRepoCompetition { get; set; }
         public IRepoParticipant MyRepoParticipant { get; set; }
@@ -48,5 +48,6 @@ namespace ContestFormApp.Services
         {
             MyRepoParticipant.Delete(p.Id);
         }
+        */
     }
 }

@@ -1,23 +1,20 @@
-﻿using ContestAppC.Domain;
-using ContestFormApp.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-
+using ContestFormApp.Services;
+using ContestModel.Domain;
+using ContestServices.Services;
 namespace ContestFormApp
 {
     public partial class Form1 : Form
     {
-        public MainService Service { get; set; }
+        public ContestController Controller { get; set; }
 
-        public Form1(MainService s)
+        public Form1(ContestController s)
         {
-            this.Service = s;
+            this.Controller = s;
             InitializeComponent();
             Populate();
             MyInit();
@@ -32,10 +29,11 @@ namespace ContestFormApp
 
         private void Populate()
         {
-            
+            /*
             catVarstaList.Items.Clear();
             foreach (var cat in Service.GetAgeCategories())
                 catVarstaList.Items.Add(cat);
+                */
         }
 
 
@@ -46,6 +44,7 @@ namespace ContestFormApp
 
         private void handleSelection(object sender, ItemCheckEventArgs e)
         {
+            /*
             if (e.NewValue == CheckState.Checked && catVarstaList.CheckedItems.Count > 0)
             {
                 catVarstaList.ItemCheck -= handleSelection;
@@ -64,10 +63,12 @@ namespace ContestFormApp
                 foreach (var el in Service.GetCompetitionsForAgeCategory(cat))
                     competitionsList.Items.Add(el);
             }
+            */
         }
 
         private void handleSelectionCompetitions(object sender, ItemCheckEventArgs e)
         {
+            /*
             if (e.NewValue == CheckState.Checked && competitionsList.CheckedItems.Count > 0)
             {
                 competitionsList.ItemCheck -= handleSelectionCompetitions;
@@ -87,10 +88,12 @@ namespace ContestFormApp
                 NoCompCol.DataPropertyName = "NoComp";
 
             }
+            */
         }
 
         private void handleFilter(object sender, EventArgs e)
         {
+            /*
             IList<Participant> my;
             if (filterRadio.Checked == true)
                 my = Service.GetParticipantsForCompetition((Competition)competitionsList.CheckedItems[0]);
@@ -98,10 +101,12 @@ namespace ContestFormApp
                 my = Service.getAllParticipants();
             var filtered = my.Where(x => x.Name.ToUpper().Contains(filter.Text.ToUpper())).ToList();
             participantsTable.DataSource = filtered;
+        */
         }
 
         private void handleRadioButtons(object sender, EventArgs e)
         {
+         /*
             if (allRadio.Checked == true)
             {
                 catVarstaList.Items.Clear();
@@ -112,11 +117,12 @@ namespace ContestFormApp
             {
                 this.Populate();
             }
-
+            */
         }
 
         private void handleParticipantsSelection(object sender, EventArgs e)
         {
+            /*
             if (participantsTable.SelectedRows.Count > 0)
             {
                 var part = (Participant)participantsTable.SelectedRows[0].DataBoundItem;
@@ -140,10 +146,12 @@ namespace ContestFormApp
                     return;
                 }
             }
+            */
         }
 
         private void handleDeleteParticipant(object sender, EventArgs e)
         {
+            /*
             if (participantsTable.SelectedRows.Count == 1)
             {
                 Participant p = (Participant)participantsTable.SelectedRows[0].DataBoundItem;
@@ -158,6 +166,7 @@ namespace ContestFormApp
                     MessageBox.Show(ex.Message, "something went wrong...");
                 }
             }
+            */
         }
     }
 }

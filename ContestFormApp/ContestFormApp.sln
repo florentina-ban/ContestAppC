@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContestFormApp", "ContestFormApp.csproj", "{F098A249-D77B-4121-89B2-45A6E0364F47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContestClient", "ContestClient.csproj", "{F098A249-D77B-4121-89B2-45A6E0364F47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContestPersistance", "..\ContestPersistance\ContestPersistance.csproj", "{9AD27186-3DEC-4330-AA85-353156ED83F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContestServices", "..\ContestServices\ContestServices.csproj", "{CA6774BE-98FE-4BC0-BE16-B12011F9D02F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContestModel", "..\ContestModel\ContestModel.csproj", "{50FFB996-C0A5-40B3-8498-24336A430B37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContestNetworking", "..\ContestNetworking\ContestNetworking.csproj", "{C55012F9-C9CE-47D5-885F-30DB11331C52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContestServer", "..\ContestServer\ContestServer.csproj", "{BF87867D-D41D-4D4E-8263-07AC944263E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{F098A249-D77B-4121-89B2-45A6E0364F47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F098A249-D77B-4121-89B2-45A6E0364F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F098A249-D77B-4121-89B2-45A6E0364F47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD27186-3DEC-4330-AA85-353156ED83F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD27186-3DEC-4330-AA85-353156ED83F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD27186-3DEC-4330-AA85-353156ED83F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD27186-3DEC-4330-AA85-353156ED83F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6774BE-98FE-4BC0-BE16-B12011F9D02F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6774BE-98FE-4BC0-BE16-B12011F9D02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6774BE-98FE-4BC0-BE16-B12011F9D02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6774BE-98FE-4BC0-BE16-B12011F9D02F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50FFB996-C0A5-40B3-8498-24336A430B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50FFB996-C0A5-40B3-8498-24336A430B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50FFB996-C0A5-40B3-8498-24336A430B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50FFB996-C0A5-40B3-8498-24336A430B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C55012F9-C9CE-47D5-885F-30DB11331C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C55012F9-C9CE-47D5-885F-30DB11331C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55012F9-C9CE-47D5-885F-30DB11331C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C55012F9-C9CE-47D5-885F-30DB11331C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF87867D-D41D-4D4E-8263-07AC944263E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF87867D-D41D-4D4E-8263-07AC944263E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF87867D-D41D-4D4E-8263-07AC944263E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF87867D-D41D-4D4E-8263-07AC944263E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
