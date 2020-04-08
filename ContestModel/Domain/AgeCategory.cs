@@ -24,10 +24,7 @@ namespace ContestModel.Domain
                    Name == category.Name;
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+      
 
         public override string ToString()
         {
@@ -37,6 +34,15 @@ namespace ContestModel.Domain
         {
             return age >= this.StartAge && age <= this.EndAge;
 
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1454774529;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + StartAge.GetHashCode();
+            hashCode = hashCode * -1521134295 + EndAge.GetHashCode();
+            return hashCode;
         }
     }
 }

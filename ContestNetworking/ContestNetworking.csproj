@@ -56,6 +56,7 @@
     <Compile Include="Protocol\IResponse.cs" />
     <Compile Include="Protocol\IUpdateResponse.cs" />
     <Compile Include="Protocol\LogInRequest.cs" />
+    <Compile Include="Protocol\LogOutRequest.cs" />
     <Compile Include="Protocol\OkResponse.cs" />
     <Compile Include="Protocol\ParticipantsRequest.cs" />
     <Compile Include="Protocol\ParticipantsResponse.cs" />

@@ -21,5 +21,20 @@ namespace ContestModel.Domain
         {
             return this.Name; 
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Competition competition &&
+                   Name == competition.Name &&
+                   EqualityComparer<AgeCategory>.Default.Equals(Category, competition.Category);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -808104057;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<AgeCategory>.Default.GetHashCode(Category);
+            return hashCode;
+        }
     }
 }

@@ -40,14 +40,26 @@ namespace ContestNetworking.Protocol
         public void ParticipantRemoved(ParticipantDTO participantDTO)
         {
             IUpdateResponse response = new UpdateRemovedParticipantResponse(participantDTO);
-            Console.WriteLine("ClientWorker - inainte de send UpdateResponse");
-            this.SendResponse(response);
+            // Console.WriteLine("ClientWorker - inainte de send UpdateResponse");
+            try
+            {
+                this.SendResponse(response);
+            }catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
         public void ParticipantAdded(ParticipantDTO participantDTO)
         {
             IUpdateResponse response = new UpdateAddParticipatResponse(participantDTO);
-            Console.WriteLine("ClientWorker - inainte de send UpdateResponse");
-            this.SendResponse(response);
+            // Console.WriteLine("ClientWorker - inainte de send UpdateResponse");
+            try
+            {
+                this.SendResponse(response);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
         public Object HandleRequest(IRequest request)
         {
@@ -56,27 +68,55 @@ namespace ContestNetworking.Protocol
             {
                 if (request is LogInRequest)
                 {
-                    Service.LogIn(((LogInRequest)request).NewUser, this);
-                    response = new OkResponse();
+                    response = new OkResponse(null);
+
+                    lock (this.Service)
+                    {
+                        Service.LogIn(((LogInRequest)request).NewUser, this);
+                    }
+
                     return (Object)response;
+                }
+                if (request is LogOutRequest)
+                {
+                    lock (this.Service)
+                    {
+                        Service.LogOut(((LogOutRequest)request).user);
+                    }
+                    response = new OkResponse(null);
+                    return (object)response;
+                    
                 }
                 if (request is AgeCategoriesRequest)
                 {
-                    IList<AgeCategory> allCategs = this.Service.GetAgeCategories();
+                    IList<AgeCategory> allCategs;
+
+                    lock (this.Service)
+                    {
+                        allCategs = this.Service.GetAgeCategories();
+                    }
                     response = new AgeCategoriesResponse(allCategs);
                     return (Object)response; 
                 }
                 if (request is CompetitionsRequest)
                 {
                     CompetitionsRequest req = (CompetitionsRequest)request;
-                    IList<Competition> allComps = this.Service.GetCompetitions(req.ageCategory);
+                    IList<Competition> allComps;
+                    lock (this.Service)
+                    {
+                        allComps = this.Service.GetCompetitions(req.ageCategory);
+                    }
                     response = new CompetitionsResponse(allComps);
                     return (Object)response;
                 }
                 if (request is ParticipantsRequest)
                 {
                     ParticipantsRequest req = (ParticipantsRequest)request;
-                    IList<ParticipantDTO> allPart = this.Service.GetParticipantDTOs(req.MyCompetition);
+                    IList<ParticipantDTO> allPart;
+                    lock (this.Service)
+                    {
+                        allPart = this.Service.GetParticipantDTOs(req.MyCompetition);
+                    }
                     response = new ParticipantsResponse(allPart);
                     return (object)response;
                 }
@@ -87,17 +127,18 @@ namespace ContestNetworking.Protocol
                     {
                         Service.DeleteParticipant(req.Particip,this);
                     }
-                    response = new OkResponse();
+                    response = new OkResponse(req.Particip);
                     return (object)response;
                 }
                 if (request is AddRequest)
                 {
+                    ParticipantDTO part=null;
                     AddRequest req = (AddRequest)request;
                     lock (this.Service)
                     {
-                        Service.AddParticipant(req.participantDTO, this);
+                        part=Service.AddParticipant(req.participantDTO, this);
                     }
-                    response = new OkResponse();
+                    response = new OkResponse(part);
                     return (object)response;
                 }
 
@@ -123,21 +164,34 @@ namespace ContestNetworking.Protocol
                 {
                     Console.WriteLine("in ClientWorker - waiting for reqests");
                     Object request = MyFormatter.Deserialize(StreamToClient);
-                    Console.WriteLine("in ClientWorker - request received"+request.GetType());
+                    Console.WriteLine("in ClientWorker - request received" + request.GetType());
                     Object response = this.HandleRequest((IRequest)request);
                     if (response != null)
                     {
                         this.SendResponse((IResponse)response);
+                        if (request is LogOutRequest && response is OkResponse)
+                            connected = false;
                     }
-                }catch(Exception exception)
+                }
+                catch (Exception exception)
                 {
                     Console.WriteLine(exception.Message);
+                }
+                try
+                {
+                    Thread.Sleep(1000);
+                }
+                catch( Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
                 }
             }
             try
             {
                 StreamToClient.Close();
-            }catch (Exception ec)
+                SocketToClient.Close();
+            }
+            catch (Exception ec)
             {
                 Console.WriteLine(ec.Message);
             }

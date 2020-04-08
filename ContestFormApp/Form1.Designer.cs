@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.catVarstaList = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.competitionsList = new System.Windows.Forms.CheckedListBox();
@@ -55,8 +54,8 @@
             this.AgeBox = new System.Windows.Forms.TextBox();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.logOutBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.participantsTable)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -110,10 +109,10 @@
             this.NameCol,
             this.AgeCol,
             this.NoCompCol});
-            this.participantsTable.Location = new System.Drawing.Point(154, 104);
+            this.participantsTable.Location = new System.Drawing.Point(154, 78);
             this.participantsTable.Name = "participantsTable";
             this.participantsTable.ReadOnly = true;
-            this.participantsTable.Size = new System.Drawing.Size(284, 208);
+            this.participantsTable.Size = new System.Drawing.Size(284, 345);
             this.participantsTable.TabIndex = 4;
             this.participantsTable.SelectionChanged += new System.EventHandler(this.handleParticipantsSelection);
             // 
@@ -184,7 +183,7 @@
             // 
             // filter
             // 
-            this.filter.Location = new System.Drawing.Point(242, 78);
+            this.filter.Location = new System.Drawing.Point(242, 40);
             this.filter.Name = "filter";
             this.filter.Size = new System.Drawing.Size(196, 20);
             this.filter.TabIndex = 7;
@@ -193,7 +192,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(151, 81);
+            this.label4.Location = new System.Drawing.Point(151, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 8;
@@ -202,6 +201,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SlateGray;
+            this.panel2.Controls.Add(this.logOutBtn);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.compList2);
             this.panel2.Controls.Add(this.comp2);
@@ -303,32 +303,40 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Location = new System.Drawing.Point(461, 194);
+            this.button2.BackgroundImage = global::ContestFormApp.Properties.Resources.arrow;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Location = new System.Drawing.Point(461, 78);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 53);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Add Participant";
+            this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.handleAddParticipant);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.SlateGray;
-            this.panel3.Location = new System.Drawing.Point(131, 356);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(465, 95);
-            this.panel3.TabIndex = 10;
+            this.button2.MouseLeave += new System.EventHandler(this.handleUndoHover);
+            this.button2.MouseHover += new System.EventHandler(this.handleHover);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(461, 124);
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Location = new System.Drawing.Point(461, 153);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 51);
             this.button3.TabIndex = 0;
-            this.button3.Text = "Delete Selected";
+            this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.handleDeleteParticipant);
+            this.button3.MouseLeave += new System.EventHandler(this.handleUndoHover);
+            this.button3.MouseHover += new System.EventHandler(this.handleHover);
+            // 
+            // logOutBtn
+            // 
+            this.logOutBtn.Location = new System.Drawing.Point(48, 390);
+            this.logOutBtn.Name = "logOutBtn";
+            this.logOutBtn.Size = new System.Drawing.Size(120, 48);
+            this.logOutBtn.TabIndex = 0;
+            this.logOutBtn.Text = "LogOut";
+            this.logOutBtn.UseVisualStyleBackColor = true;
+            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
             // Form1
             // 
@@ -337,7 +345,6 @@
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.filter);
@@ -345,7 +352,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.participantsTable);
             this.Name = "Form1";
-            this.Text = "Contest";
+            this.Text = "ContestApp for user:  ";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.participantsTable)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -381,12 +388,12 @@
         private System.Windows.Forms.CheckedListBox compList2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox comp2;
         private System.Windows.Forms.TextBox comp1;
+        private System.Windows.Forms.Button logOutBtn;
     }
 }
 

@@ -22,7 +22,12 @@ namespace ContestFormApp.Services
             ServiceProxy.LogIn(newUser, this);
             this.currentUser = newUser;
             Form1 mainForm = new Form1(this);
+            mainForm.Text += user;
             mainForm.Show();
+        }
+        public void LogOut()
+        {
+            ServiceProxy.LogOut(this.currentUser);
         }
         public IList<AgeCategory> GetAgeCategories()
         {
@@ -57,13 +62,13 @@ namespace ContestFormApp.Services
         public void DeleteParticipant(ParticipantDTO participantDTO)
         {            
             ServiceProxy.DeleteParticipant(participantDTO,this);
-            this.UpdateParticipanti(new ContestEventArgs(ContestEvent.ParticipantRemoved, (object)participantDTO));
+           // this.UpdateParticipanti(new ContestEventArgs(ContestEvent.ParticipantRemoved, (object)participantDTO));
         }
         public void AddParticipant(String name, int age, IList<Competition> competitions)
         {
             ParticipantDTO participantDTO = new ParticipantDTO(new Participant(-1, name, age), competitions);
             ServiceProxy.AddParticipant(participantDTO, this);
-            this.UpdateParticipanti(new ContestEventArgs(ContestEvent.ParticipantAdded, (object)participantDTO));
+           // this.UpdateParticipanti(new ContestEventArgs(ContestEvent.ParticipantAdded, (object)participantDTO));
         }
     }
 }

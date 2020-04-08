@@ -61,9 +61,18 @@ namespace ContestNetworking.Protocol
             }
         }
 
-        public void LogOut(User user, IContestObserver observer)
+        public void LogOut(User user)
         {
-            throw new NotImplementedException();
+            IRequest request = new LogOutRequest(user);
+            this.SendRequest(request);
+            IResponse response = this.ReadResponse();
+            //if (response is OkResponse)
+            //this.Connected = false;
+            CloseConnection();
+            if (response is ErrorResponse)
+            {
+                throw new Exception(((ErrorResponse)response).Message);
+            }
         }
         public IList<AgeCategory> GetAgeCategories()
         {
@@ -111,8 +120,10 @@ namespace ContestNetworking.Protocol
             {
                 throw new Exception(((ErrorResponse)response).Message);
             }
+            OkResponse resp = (OkResponse)response;
+            Controller.ParticipantRemoved(resp.participant);
         }
-        public void AddParticipant(ParticipantDTO participantDTO,IContestObserver obs)
+        public ParticipantDTO AddParticipant(ParticipantDTO participantDTO,IContestObserver obs)
         {
             IRequest request = new AddRequest(participantDTO);
             this.SendRequest(request);
@@ -121,6 +132,9 @@ namespace ContestNetworking.Protocol
             {
                 throw new Exception(((ErrorResponse)response).Message);
             }
+            OkResponse resp = (OkResponse)response;
+            Controller.ParticipantAdded(resp.participant);
+            return null;
         }
         public void StartReader()
         {
@@ -128,7 +142,7 @@ namespace ContestNetworking.Protocol
             thread.Start();
         }
         public void SendRequest(IRequest request)
-        {
+        {          
             try
             {
                 Console.WriteLine("before sending the request "+request.ToString());
@@ -147,8 +161,8 @@ namespace ContestNetworking.Protocol
             try
             {
                 this.WaitHandle.WaitOne();
-                response = ResponseQueue.Dequeue();
-                Console.WriteLine("Response read "+ response.GetType());
+                response = ResponseQueue.Dequeue();              
+                Console.WriteLine("Response read from Queue "+ response.GetType());
             }catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -162,16 +176,18 @@ namespace ContestNetworking.Protocol
                 try
                 {
                     Object respObj = MyFormatter.Deserialize(StreamToClientWorker);
-                    Console.WriteLine("response read " + respObj.GetType());
+                    Console.WriteLine("Response read from stream " + respObj.GetType());
                     IResponse response = (IResponse)respObj;
                     if (response is IUpdateResponse)
                     {
+                        //Task.Run(() => this.HandleUpdate((IUpdateResponse)response));
                         this.HandleUpdate((IUpdateResponse)response);
                     }
                     else
                     {
                         lock (ResponseQueue)
                         {
+                            Console.WriteLine("Response put in queue " + response.GetType());
                             ResponseQueue.Enqueue(response);
                         }
                         this.WaitHandle.Set();
@@ -184,6 +200,7 @@ namespace ContestNetworking.Protocol
         }
         public void CloseConnection()
         {
+            this.Connected = false;
             try
             {
                 StreamToClientWorker.Close();
@@ -199,13 +216,25 @@ namespace ContestNetworking.Protocol
         {
             if (response is UpdateRemovedParticipantResponse)
             {
-                UpdateRemovedParticipantResponse resp = (UpdateRemovedParticipantResponse)response;
-                this.Controller.ParticipantRemoved(resp.participant);
+                try
+                {
+                    UpdateRemovedParticipantResponse resp = (UpdateRemovedParticipantResponse)response;
+                    this.Controller.ParticipantRemoved(resp.participant);
+                }catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                }
             }
             if (response is UpdateAddParticipatResponse)
             {
-                UpdateAddParticipatResponse resp = (UpdateAddParticipatResponse)response;
-                this.Controller.ParticipantAdded(resp.participantDTO);
+                try
+                {
+                    UpdateAddParticipatResponse resp = (UpdateAddParticipatResponse)response;
+                    this.Controller.ParticipantAdded(resp.participantDTO);
+                }catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                }
             }
         }
 

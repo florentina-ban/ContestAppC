@@ -36,10 +36,12 @@ namespace ContestServer.Server
                 throw new Exception("Invalid Data");
         }
 
-        public void LogOut(User user, IContestObserver observer)
+        public void LogOut(User user)
         {
-
-            throw new NotImplementedException();
+            if (allClients.ContainsKey(user.Name))
+                allClients.Remove(user.Name);
+            else
+                throw new Exception("user not logged in");
         }
 
         public void nofityAllCientsParticipantRemoved(ParticipantDTO participantDTO,IContestObserver obs)
@@ -99,7 +101,7 @@ namespace ContestServer.Server
             this.MyRepoParticipant.Delete(participantDTO.Id);
             this.nofityAllCientsParticipantRemoved(participantDTO,obs);
         }
-        public void AddParticipant(ParticipantDTO participantDTO,IContestObserver obs)
+        public ParticipantDTO AddParticipant(ParticipantDTO participantDTO,IContestObserver obs)
         {
             this.MyRepoParticipant.Add(participantDTO.GetParticipantFromDTO());
             int idPart = this.MyRepoParticipant.FindOneByName(participantDTO.Name).Id;
@@ -109,6 +111,7 @@ namespace ContestServer.Server
             if (participantDTO.NoComp == 2)
                 this.MyRepoSignUp.Add(new SignUp(participantDTO.GetParticipantFromDTO(), participantDTO.Competition2));
             this.nofityAllCientsParticipantAdded(new ParticipantDTO(participantDTO.GetParticipantFromDTO(), participantDTO.Competition1, participantDTO.Competition2),obs);
+            return participantDTO;
         }
     }
 }
